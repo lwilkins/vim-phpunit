@@ -13,6 +13,16 @@ if exists(":CompilerSet") != 2		" older Vim always used :setlocal
   command -nargs=* CompilerSet setlocal <args>
 endif
 
-CompilerSet makeprg=phpunit\ $*
+CompilerSet makeprg=rake\ test\[$*\]
 
-CompilerSet errorformat=%E%n)\ %.%#,%Z%f:%l,%C%m,%C,%-G%.%#
+CompilerSet errorformat=
+            \%E%n)\ %.%#,
+            \%Z/vagrant/%f:%l,
+            \%C%m,
+            \%-G%.%#%m,
+            \%-G,
+"First line captures the error number
+"Second line captures the file path and line number
+"Third line captures the test error message
+"Last two patterns ignore any other lines with any character on an empty lines
+"respectively
