@@ -19,10 +19,15 @@ CompilerSet errorformat=
             \%E%n)\ %.%#,
             \%Z/vagrant/%f:%l,
             \%C%m,
-            \%-G%.%#%m,
+            \%-G%.%#PHPUnit%.%#,
+            \%-G%.%#Time%.%#,
+            \%-G%.%#There\ was\ %\\d\ error%.%#,
+            \%-G%.%#There\ was\ %\\d\ failure%.%#,
+            \%-G%.%#FAILURES%.%#,
+            \%-G%.%#Tests:\ %\\d%.%#,
+            \%-G%.%#Remote\ command\ returned%.%#,
             \%-G,
 "First line captures the error number
 "Second line captures the file path and line number
 "Third line captures the test error message
-"Last two patterns ignore any other lines with any character on an empty lines
-"respectively
+"The rest of the lines set other parts of the output to be ignored
